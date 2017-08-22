@@ -7,11 +7,11 @@ var me = (target, ...arg) => {
 clearInterval(timer);
 var timer = setInterval(() => {
     if (element.innerText && element.innerText === 'Continue »') {
-        me(element, 'mousedown', true, true);
-		me(element, 'click', true, true);
-        me(element, 'mouseup', true, true);
+      me(element, 'mousedown', true, true);
+			me(element, 'click', true, true);
+      me(element, 'mouseup', true, true);
     } else {
-		alert(11111111);
 		clearInterval(timer);
+		alert(11111111);
 	}
-}, 500 + Math.random()*100);
+}, 500 + Math.random() * 100);

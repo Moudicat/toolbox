@@ -26,3 +26,36 @@ export function formatDate(date, fmt) {
   }
   return fmt;
 }
+
+export class SearchParser {
+  constructor(search) {
+    if (search) {
+      this.searchArr = search.substring(1).split('&').map(e => {
+        let searchItem = e.split('=');
+        return {
+          name: searchItem[0],
+          value: searchItem[1]
+        };
+      });
+    } else {
+      this.searchArr = [];
+    }
+  }
+
+  get(name) {
+    for (let k of this.searchArr) {
+      if (k.name === name) {
+        return k.value;
+      }
+    }
+    return null;
+  }
+
+  getAll() {
+    return this.searchArr;
+  }
+}
+
+export function isWechat() {
+  return /MicroMessenger/.test(navigator.userAgent);
+}
